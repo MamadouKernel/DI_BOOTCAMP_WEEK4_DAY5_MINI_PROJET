@@ -1,0 +1,23 @@
+
+<div>
+  <mat-form-field class="example-full-width">
+    <mat-label>Search author book</mat-label>
+    <input matInput placeholder="Author name"  [(ngModel)]="searchString">
+  </mat-form-field>
+  <button  mat-raised-button  color="primary" type="submit" (click)="onSubmit()">Submit</button>
+</div>
+
+<ng-container>
+  <mat-card *ngFor="let book of Books">
+    <mat-card-header>
+      <img [src]="book.coverImage ? book.coverImage : ''" [class.preview]="book.previewMode" (click) ="onClickImage(book)"  mat-card-image>
+    </mat-card-header>
+    <mat-card-content>
+      {{ book.getAuthorsList() }} <strong>{{ book.title }}</strong>
+    </mat-card-content>
+  </mat-card>
+</ng-container>
+
+
+
+
